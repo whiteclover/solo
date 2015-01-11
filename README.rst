@@ -7,8 +7,6 @@ Web Framework Based Gevent & Webob & Routes
 Benchmark
 ===========
 
-Result
-----------
 
 ab  -n10000 -c500   http://localhost:8080/
    
@@ -58,11 +56,7 @@ Hello
         WebServer(('127.0.0.1', 8080), app, log=None).start()
 
 
-More examples
-=============
-
-
-see  `samples <https://github.com/thomshuang/solo/samples>`_
+.. note:: more examples see  `samples <https://github.com/thomshuang/solo/samples>`_
 
 Requirement
 ===========

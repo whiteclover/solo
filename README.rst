@@ -56,7 +56,7 @@ Hello
         WebServer(('127.0.0.1', 8080), app, log=None).start()
 
 
-.. note:: more examples see  `samples <https://github.com/thomshuang/solo/samples>`_
+.. note:: more examples see  `samples <https://github.com/thomashuang/solo/tree/master/samples>`_
 
 Requirement
 ===========

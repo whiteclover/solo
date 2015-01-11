@@ -1,0 +1,15 @@
+#flash .ok {
+    background:#d8ecd8  no-repeat scroll 10px center;
+}
+
+#flash .warning {
+    background:#fff483  no-repeat scroll 10px center;
+}
+
+#flash .error {
+    background:#f9c5c1  no-repeat scroll 10px center;
+}
+
+#flash .info {
+    background:#EEEEFF  no-repeat scroll 10px center;
+}

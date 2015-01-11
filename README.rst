@@ -61,7 +61,7 @@ Hello
 Requirement
 ===========
 
-The modules are requied to run solo as below:
+The modules are required to run solo as below:
 
 #. gevent
 #. webob

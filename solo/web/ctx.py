@@ -17,6 +17,10 @@
 __all__ = ['request', 'response', 'serving']
 
 
+import logging
+
+LOGGER = logging.getLogger('solo.web')
+
 try:
     from greenlet import getcurrent as get_ident
 except ImportError:

@@ -22,6 +22,10 @@ ab  -n10000 -c500   http://localhost:8080/
     ============== ============ =========== ========== ============== 
 
 
+The Projects use solo
+======================
+
+#. `Lilac (Distributed Scheduler Task System) <https://github.com/thomashuang/Lilac>`_
 
 Hello
 ======
@@ -56,7 +60,7 @@ Hello
         WebServer(('127.0.0.1', 8080), app, log=None).start()
 
 
-.. note:: more examples see  `samples <https://github.com/thomashuang/solo/tree/master/samples>`_
+.. note:: more examples see `Lilac (Distributed Scheduler Task System) <https://github.com/thomashuang/Lilac>`_ or `samples <https://github.com/thomashuang/solo/tree/master/samples>`_ 
 
 Requirement
 ===========

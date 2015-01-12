@@ -94,6 +94,8 @@ class HookMap(dict):
 
     def attach(self, point, callback, failsafe=None, priority=None, **kwargs):
         """Append a new Hook made from the supplied arguments."""
+        if point not in self:
+            self[point] = []
         self[point].append(Hook(callback, failsafe, priority, **kwargs))
         self[point].sort()
 

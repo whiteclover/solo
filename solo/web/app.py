@@ -70,7 +70,7 @@ class App(object):
     def error_page(self, code, callback):
         if type(code) is not int:
             raise TypeError("code:%d is not int type" %(code))
-        self.error_page[str(code)] = callback
+        self.error_pages[str(code)] = callback
 
     def __call__(self, environ, start_response):
         try:
@@ -100,7 +100,9 @@ class App(object):
                     raise exc.HTTPNotFound('Path %s Not Found' % (path_info)) 
 
             except exc.HTTPRedirection as e:
-                response = serving.response = e
+                serving.response.location = e.location
+                serving.response.status = e.status
+                response = serving.response
                 self.hooks.run('on_end_resource')
             except exc.HTTPException as e:
                 response = serving.response = self.handle_error_page(request, response, e)
@@ -119,7 +121,7 @@ class App(object):
         """Handle the last unanticipated exception. (Core)"""
         try:
             self.hooks.run("before_error_response")
-            response.status_code = exception.code
+            response.status = exception.status
             #response.status = exception.status
             handler = self.error_pages.get(str(exception.code), None)
             if handler:

@@ -47,6 +47,7 @@ class RoutesDispatcher(object):
         self.mapper = routes.Mapper(**mapper_options)
         self.mapper.controller_scan = self.controllers.keys
 
+
     def connect(self, name, route, controller, **kwargs):
         self.controllers[name] = controller
         self.mapper.connect(name, route, controller=name, **kwargs)
@@ -55,7 +56,7 @@ class RoutesDispatcher(object):
     def match(self, request, path_info):
         """Find the right page handler."""
 
-        result = self.mapper.match(path_info)
+        result = self.mapper.match(path_info, {'REQUEST_METHOD' : request.method})
 
         if not result:
             # action, handler
@@ -80,14 +81,13 @@ class RoutesDispatcher(object):
             handler = controller
 
         if request.method == 'GET':
-            reqparams = request.GET.copy() 
+            reqparams = request.GET.mixed()
         elif request.method != 'HEAD':
-            reqparams = request.POST.copy()
+            reqparams = request.POST.mixed()
         else:
             reqparams = {}
 
         reqparams.update(params)
-
         handler = PageHandler(handler, **reqparams)
 
         return action, handler

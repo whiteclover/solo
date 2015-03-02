@@ -136,5 +136,5 @@ class HookMap(dict):
         return "%s.%s(points=%r)" % (
             cls.__module__,
             cls.__name__,
-            copykeys(self)
+            self.keys()
         )
